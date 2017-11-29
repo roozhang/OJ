@@ -1,0 +1,31 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int yu = 0;
+    int chu = 0;
+    bool mark = true;
+    for(int i = 1;i<=12&&mark;i++){
+        int a;
+        cin>>a;
+        yu=(yu+300-a);
+        if(yu<0){
+            mark=false;
+            cout<<"-"<<i;
+        }
+        else{
+            chu+=yu/100*100;
+            yu-=yu/100*100;
+
+        }
+    }
+    if(mark){
+        cout<<yu+120*chu/100;
+    }
+    else{
+
+    }
+    return 0;
+}
