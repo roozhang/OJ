@@ -1,0 +1,18 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n = 0,s = 0;
+    for(int i = 1;i<=7;i++){
+        int a,b;
+        cin>>a>>b;
+        if(a+b>8&&a+b>s){
+            n=i;
+            s=a+b;
+        }
+    }
+    cout<<n;
+    return 0;
+}
