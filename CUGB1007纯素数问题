@@ -5,7 +5,6 @@ using namespace std;
 //isprime??用欧拉筛法试试。
 int main()
 {
-    string str(10000,0);
     vector<int> vecprime={2};
     for(int i = 3;i<10000;i++){
         int k = 0;
