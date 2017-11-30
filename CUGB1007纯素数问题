@@ -1,0 +1,32 @@
+#include <algorithm>
+#include <iostream>
+#include <vector>
+using namespace std;
+//isprime??用欧拉筛法试试。
+int main()
+{
+    string str(10000,0);
+    vector<int> vecprime={2};
+    for(int i = 3;i<10000;i++){
+        int k = 0;
+        for(auto j = 0;j<vecprime.size()&&i%vecprime[j]!=0;j++){
+            k=j;
+        }
+        if(k==vecprime.size()-1){
+            vecprime.push_back(i);
+        }
+    }
+
+    for(int i=1000;i<10000;i++){
+        if(find(vecprime.begin(),vecprime.end(),(i%10000))!=vecprime.end()&&
+           find(vecprime.begin(),vecprime.end(),(i%1000))!=vecprime.end()&&
+           find(vecprime.begin(),vecprime.end(),(i%100))!=vecprime.end()&&
+           find(vecprime.begin(),vecprime.end(),(i%10))!=vecprime.end()
+           ){
+            cout<<i<<endl;
+           }
+
+    }
+
+    return 0;
+}
