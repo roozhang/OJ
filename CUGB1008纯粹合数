@@ -1,0 +1,30 @@
+#include <algorithm>
+#include <iostream>
+#include <vector>
+using namespace std;
+//依旧欧拉筛法
+int main()
+{
+    vector<int> vecprime={2};
+    for(int i = 3;i<1000;i++){
+        int k = 0;
+        for(auto j = 0;j<vecprime.size()&&i%vecprime[j]!=0;j++){
+            k=j;
+        }
+        if(k==vecprime.size()-1){
+            vecprime.push_back(i);
+        }
+    }
+    vecprime.push_back(1);//加上一个1，既不是素数也不是合数
+    for(int i=100;i<1000;i++){
+        if(find(vecprime.begin(),vecprime.end(),i)==vecprime.end()&&
+           find(vecprime.begin(),vecprime.end(),(i/100))==vecprime.end()&&
+           find(vecprime.begin(),vecprime.end(),(i/10))==vecprime.end()
+           ){
+            cout<<i<<endl;
+           }
+
+    }
+
+    return 0;
+}
