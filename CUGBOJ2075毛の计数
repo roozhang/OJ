@@ -1,0 +1,39 @@
+#include <iostream>
+#include <map>
+using namespace std;
+
+int main()
+{
+    int a;
+    while(cin>>a){
+        for(int i = 0;i<a;i++){                      	 //每次a个样本
+            int n,k;
+            map<int,int> m;
+            cin>>n>>k;
+            for(int j = 0;j<n;j++){                  	//输入a0到an-1这n个数字
+                int ai;
+                cin>>ai;
+                m.insert({ai,j});                     //m的key用来存数字，value用来存上一次出现的位数
+                if(m[ai]!=j){													//如果不是第一次输入													
+                    if(j-m[ai]<=k){										//现在ai的位数减去上一个位数（m[ai]的value）是否先于等于限定值k
+                        cout<<"True"<<endl;
+                        for(int p = j+1;p<n;p++){			//还得把余下的数给cin了才行，有次错在这里。
+                            int s;cin>>s;
+                        }
+                        break;
+                    }
+                    else{
+                        m[ai]=j;
+                    }
+                }
+
+                if(j==n-1){
+                    cout<<"False"<<endl;
+                }
+            }
+        }
+        cout<<endl;
+    }
+    return 0;
+}
+//学会用map，还不是美滋滋~
