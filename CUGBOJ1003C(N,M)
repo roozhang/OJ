@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int n;
+    cin>>n;
+    for(int i = 0;i<n;i++){
+        int N,M;
+        cin>>N>>M;
+        long long s = 1;
+        for(int j = 0;j<N;j++){
+            s*=M;
+            M--;
+        }
+        for(;N>1;N--){
+            s/=N;
+        }
+        cout<<s;
+        cout<<endl;
+    }
+    return 0;
+}
+//还非得 long long 不可。。。
