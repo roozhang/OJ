@@ -1,0 +1,64 @@
+#include <iostream>
+#include <string>
+using namespace std;
+int single_money(int qimo,int pingyi,char ganbu,char xibu,int lunwen);
+
+int yuanshij(int qimo,int lunwen);
+int wusij(int qimo,int pingyi);
+int chengjij(int qimo);
+int xibuj(int qimo,char xibu);
+int banjij(int pingyi,char ganbu);
+
+int main()
+{
+    int n;
+    cin>>n;
+    string top_name,name;
+    int top_money = 0,sum_money = 0;
+    for(int i = 0;i<n;i++){
+        int qimo;int pingyi;char ganbu;char xibu;int lunwen;
+        cin>>name;
+        cin>>qimo>>pingyi>>ganbu>>xibu>>lunwen;
+        int money =single_money(qimo,pingyi,ganbu,xibu,lunwen);
+        if(money>top_money){
+            top_name = name;
+            top_money = money;
+        }
+        sum_money+=money;
+
+    }
+    cout<<top_name<<endl;
+    cout<<top_money<<endl;
+    cout<<sum_money;
+    return 0;
+}
+int single_money(int qimo,int pingyi,char ganbu,char xibu,int lunwen){
+    int s = 0;
+    s=yuanshij(qimo,lunwen)+wusij(qimo,pingyi)+chengjij(qimo)+xibuj(qimo,xibu)+banjij(pingyi,ganbu);
+    return s;
+}
+int yuanshij(int qimo,int lunwen){
+    if(qimo>80&&lunwen){
+        return 8000;
+    }
+    else {
+        return 0;
+    }
+}
+int wusij(int qimo,int pingyi){
+    if(qimo>85&&pingyi>80){
+        return 4000;
+    }
+    else {
+        return 0;
+    }
+}
+int chengjij(int qimo){
+    return qimo>90?2000:0;
+}
+int xibuj(int qimo,char xibu){
+    return (qimo>85&&xibu=='Y')?1000:0;
+}
+int banjij(int pingyi,char ganbu){
+    return (pingyi>80&&ganbu=='Y')?850:0;
+}
