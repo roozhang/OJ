@@ -1,0 +1,18 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+    int n;
+    cin>>n;
+    for(int i = 0;i<n;i++){
+        double a,s,d,f,g;
+        cin>>a>>s>>d>>f>>g;
+        double avr=(a+s+d+f+g)/5;
+        double st=sqrt(((a-avr)*(a-avr)+(s-avr)*(s-avr)+(d-avr)*(d-avr)+(f-avr)*(f-avr)+(g-avr)*(g-avr))/5);
+        cout<<fixed<<setprecision(3)<<avr<<" "<<st<<endl;
+    }
+    return 0;
+}
