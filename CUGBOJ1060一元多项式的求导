@@ -1,0 +1,50 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+
+
+int main()
+{
+    struct ppp{
+        int xishu;
+        int cishu;
+    };
+    vector<ppp> pvec;
+    int a,b;
+    while(cin>>a>>b&&!(a==-1&&b==-1)){
+        struct ppp x;
+        x.xishu = a;
+        x.cishu = b;
+        pvec.push_back(x);
+    }
+    int vecsize=pvec.size();
+    if(vecsize==0){
+        cout<<"0"<<endl;
+    }
+    else if(vecsize==1){
+        if(pvec[0].cishu==0){
+            cout<<"0"<<endl;
+        }
+        else {
+            int a,b;
+            a=pvec[0].xishu*pvec[0].cishu;
+            b=pvec[0].cishu-1;
+            cout<<a<<" "<<b<<endl;
+        }
+    }
+    else{
+        int a,b;
+            a=pvec[0].xishu*pvec[0].cishu;
+            b=pvec[0].cishu-1;
+            cout<<a<<" "<<b;
+        for(int i = 1;i<vecsize&&pvec[i].cishu!=0;i++){
+            a=pvec[i].xishu*pvec[i].cishu;
+            b=pvec[i].cishu-1;
+            cout<<" "<<a<<" "<<b;
+        }
+        cout<<endl;
+    }
+    return 0;
+}
+
