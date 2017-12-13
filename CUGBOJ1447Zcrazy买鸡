@@ -1,0 +1,27 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int s,a,b,c;
+    while(cin>>s>>a>>b>>c){
+        int num = 0;
+        for(int i = 0;i<=s;i++){   //xiaoji qian
+            for(int j = 0;j<=s-i;j+=b){//muji qian
+                if( (s-i-j>=0)&&( (s-i-j)%c == 0 ) && (c*i+j/b+(s-i-j)/c == s)){
+                    cout<<(s-i-j)/c<<" "<<j/b<<" "<<3*i<<"\n";
+                    num++;
+                }
+            }
+        }
+        if(num==0){
+            cout<<"Impossible"<<"\n";
+        }
+        cout<<"\n";
+    }
+
+    return 0;
+}
+
+*************wa还行。。。。。。
